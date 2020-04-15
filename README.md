@@ -193,7 +193,7 @@ $ sudo apt install postgresql postgresql-client
 - Démarer le serveur postgresql
 
 ~~~csh
-$ sudo service  postgresql start;
+$ sudo service  postgresql start
 ~~~
 
 - Créer un utilisateur `odoo` pour la base de données 
@@ -205,7 +205,7 @@ $ sudo -u postgres createuser -s odoo
 - Créer une base de données `odoo`, et en donner la propriété à l'utilisateur `odoo` :
 
 ~~~csh
-$ sudo -u postgres createdb -O odoo odoo
+$ sudo -u postgres createdb -E utf8 -l fr_CA.utf8 -T template0 -O odoo odoo
 ~~~ 
 
 - Modifier le mot de passe de l'utilisateur `odoo` par `passodoo` :
@@ -255,7 +255,7 @@ $ sudo cp -r /inf1070/odoo /opt/
   ~~~csh
   $ sudo pip3 install setuptools wheel
   $ sudo pip3 install -r requirements.txt
-  $ sudo pip3 install -U pip;
+  $ sudo pip3 install -U pip
   $ sudo pip3 install Pypdf2
   ~~~
 
@@ -300,13 +300,13 @@ $ sudo python3 odoo-bin -c odoo.conf -i base --stop-after-init
 - Démarrer le serveur odoo :
 
 ~~~csh
-$ python3 odoo-bin -c odoo.conf 
+$ sudo python3 odoo-bin -c odoo.conf 
 ~~~
 
 > On peut aussi utiliser directement la commande suivante :
 
 > ~~~csh
->$ python3 odoo-bin --addons-path=addons --data-dir=/var/odoo -d odoo -r odoo -w passodoo \
+>$ sudo python3 odoo-bin --addons-path=addons --data-dir=/var/odoo -d odoo -r odoo -w passodoo \
 >    --db_host localhost
 > ~~~
 
